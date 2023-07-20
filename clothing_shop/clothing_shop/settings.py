@@ -73,10 +73,14 @@ WSGI_APPLICATION = 'clothing_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES = { #ToDo: make this code more dynamic using config file
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'onlineshop_test',
+        'USER': 'shop_admin',
+        'PASSWORD': 'shop_admin',
+        'HOST': 'localhost',  # If PostgreSQL is running on the same machine
+        'PORT': '',          # Leave it empty to use the default port (usually 5432)
     }
 }
 
