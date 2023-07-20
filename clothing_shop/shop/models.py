@@ -10,5 +10,6 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_images = models.URLField()
+    stock = models.IntegerField()
 
 

@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from accounts.models import Customer
+from shop.models import Product
 
 # Create your models here.
 
@@ -19,4 +21,9 @@ class Address(models.Model):
 
 class Order(models.Model):
     order_date = models.DateTimeField(auto_now_add=True)
-    # ToDo: add user here
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
